@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./jquery.min.js"></script>
+    <script src="./jquery.cookie.js"></script>
+</head>
+
+<body>
+    <h1 id="hi">要求发送桌面通知的第三方</h1>
+    <button type="button" id="req">请求数据</button>
+</body>
+<script>
+    $(function () {
+        $("#req").on("click", function () {
+            var num = Math.floor(Math.random() * 10);
+            $.ajax({
+                type: "POST",
+                url: "http://192.168.4.125:8833/notification",
+                data: {
+                    notificationId: 'Charles' + num,
+                    type: 1,
+                    iconUrl: '',
+                    title: 'First notification from service',
+                    message: 'hello world',
+                    url: 'https://www.baidu.com',
+                    contextMessage: 'blingbling'
+                },
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+    });
+</script>
+
+</html>

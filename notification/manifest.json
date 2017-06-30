@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Notification Demo",
+    "version": "1.0.0",
+    "description": "第三方调用相应的API，发送数据到服务器，服务器响应完成后向客户端推送消息，客户端再进行桌面通知",
+    "icons": {
+        "16": "16.png",
+        "48": "48.png",
+        "128": "128.png"
+    },
+    "background": {
+        "scripts": ["./jquery.min.js", "./jquery.cookie.js", "./socket.io.js", "background.js"]
+    },
+    // "browser_action": {
+    //     "default_icon": "16.png",
+    //     "default_popup": "popup.html",
+    //     "default_name": "桌面提醒"
+    // },
+    "permissions": [
+        "cookies",
+        "tabs",
+        // "http://*/*",
+        "notifications"
+    ]
+    // "content_scripts": [{ //对页面内容进行操作的脚本 
+    //     "matches": ["http://*/*", "https://*/*"], //满足什么条件执行该插件  
+    //     "js": ["./index.js", "./jquery.min.js", "./jquery.cookie.js", "./socket.io.js"],
+    //     "run_at": "document_start" //在document加载时执行该脚本 
+    // }]
+
+}
